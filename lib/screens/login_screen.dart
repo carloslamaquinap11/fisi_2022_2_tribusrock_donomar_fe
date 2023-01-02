@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.black38)),
 
                         CustomTextButton(
-                            text: 'Regístro',
+                            text: 'Registro',
                             route: 'registro',
                             width: ancho * 0.22),
 

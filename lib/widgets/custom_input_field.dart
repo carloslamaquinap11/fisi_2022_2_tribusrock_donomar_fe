@@ -29,18 +29,21 @@ class CustomInputField extends StatelessWidget {
         icon: icon,
         border: InputBorder.none,
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1,color: Colors.transparent),
-          borderRadius: BorderRadius.circular(15)
+          borderSide: BorderSide(width: 1,color: Colors.black),
+          borderRadius: BorderRadius.circular(15),
+          
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1,color: Colors.transparent),
+          borderSide: BorderSide(width: 1,color: Colors.black),
           borderRadius: BorderRadius.circular(15)
         ),
         filled: true,
         fillColor: Colors.white,
         labelText: labelText,
         labelStyle: TextStyle(
-          color: Color.fromRGBO(0, 0, 0, 0.8)
+          fontSize: 15,
+          color: Color(0xFF57C2FE),
+        
         )
       ),
       style: TextStyle(

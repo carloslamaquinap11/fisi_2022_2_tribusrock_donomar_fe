@@ -1,4 +1,5 @@
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/home_screen.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
@@ -29,7 +30,7 @@ class RegistroCitaScreen extends StatelessWidget {
           ])),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Registrar Cita'),
+          title: const Text('Nueva Cita'),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
@@ -40,13 +41,53 @@ class RegistroCitaScreen extends StatelessWidget {
             height: 10,
           ),
           CustomInputField(
-            labelText: 'Descripcion Consulta: ',
+            labelText: 'Motivo de la Cita: ',
             keyboardType: TextInputType.emailAddress,
-            formProperty: 'email',
+            formProperty: 'reason',
             formValues: formValues,
           ),
-        ]),
+          const SizedBox(
+            height: 10,
+          ),
+           CustomInputField(
+            labelText: 'Descripcion Consulta: ',
+            keyboardType: TextInputType.emailAddress,
+            formProperty: 'description',
+            formValues: formValues,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+           CustomInputField(
+            labelText: 'Localización: ',
+            keyboardType: TextInputType.emailAddress,
+            formProperty: 'location',
+            formValues: formValues,
+          ),
+          SizedBox(height: 400,),
+          ElevatedButton(
+                  onPressed: () {
+                    
+
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    maximumSize: const Size(268, 52),
+                    minimumSize: const Size(268, 52),
+                    backgroundColor: const Color(0xFFFF912C),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                  ),
+                  child: const Text('Agendar Cita',
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                      maxLines: 1,
+                      textAlign: TextAlign.center),
+                ), 
+        ],),
+        
       ),
     );
   }
+  
 }

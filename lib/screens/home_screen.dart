@@ -81,15 +81,15 @@ class HomeScreen extends StatelessWidget {
                   // padding: const EdgeInsets.all(8),
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CustomNextAppointmentButton(
-                        name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                        time: '09:00 a.m.'),
-                    CustomNextAppointmentButton(
-                        name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                        time: '09:00 a.m.'),
-                    CustomNextAppointmentButton(
-                        name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                        time: '09:00 a.m.'),
+                    //  CustomNextAppointmentButton(
+                    //      name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
+                    //      time: '09:00 a.m.'),
+                    // CustomNextAppointmentButton(
+                    //      name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
+                    //      time: '09:00 a.m.'),
+                    //  CustomNextAppointmentButton(
+                    //     name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
+                    //      time: '09:00 a.m.'),
                   ],
                 ),
                 Column(
