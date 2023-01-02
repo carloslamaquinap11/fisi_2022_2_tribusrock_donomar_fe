@@ -89,6 +89,7 @@ class LoginScreen extends StatelessWidget {
                           }
                         },
                         child: Text('Ingresar')),
+
                     // Divider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

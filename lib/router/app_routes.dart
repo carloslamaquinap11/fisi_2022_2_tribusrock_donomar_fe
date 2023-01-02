@@ -6,21 +6,40 @@ class AppRoutes {
   static const initialRoute = 'login';
 
   static final menuOptions = <MenuOption>[
-    MenuOption(route: 'login', icon: Icons.home_max_sharp, name: 'Login Screen', screen: const LoginScreen()),
-    MenuOption(route: 'registro', icon: Icons.home_max_sharp, name: 'Registro Screen', screen: const RegistroScreen()),
-    MenuOption(route: 'home', icon: Icons.home_max_sharp, name: 'Home Screen', screen: const HomeScreen()),
-    // MenuOption(route: 'listview1', icon: Icons.abc_rounded, name: 'ListView1 Screen', screen: const ListView1Screen()),
+    MenuOption(
+        route: 'login',
+        icon: Icons.home_max_sharp,
+        name: 'Login Screen',
+        screen: const LoginScreen()),
+    MenuOption(
+        route: 'registro',
+        icon: Icons.home_max_sharp,
+        name: 'Registro Screen',
+        screen: const RegistroScreen()),
+    MenuOption(
+        route: 'home',
+        icon: Icons.home_max_sharp,
+        name: 'Home Screen',
+        screen: const HomeScreen()),
+    MenuOption(
+        route: 'registro_cita',
+        icon: Icons.home_max_sharp,
+        name: 'Registrar Cita',
+        screen: const RegistroCitaScreen()),
     // MenuOption(route: 'listview2', icon: Icons.verified, name: 'ListView2 Screen', screen: const ListView2Screen()),
     // MenuOption(route: 'card', icon: Icons.ad_units_outlined, name: 'Card Screen', screen: const CardScreen()),
-    MenuOption(route: 'alert', icon: Icons.alarm, name: 'Alert Screen', screen: const AlertScreen())
+    MenuOption(
+        route: 'alert',
+        icon: Icons.alarm,
+        name: 'Alert Screen',
+        screen: const AlertScreen())
   ];
 
-
-  static Map<String, Widget Function(BuildContext)> getAppRoutes(){
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-    for(final option in menuOptions){
-      appRoutes.addAll({option.route : (BuildContext context) => option.screen });
+    for (final option in menuOptions) {
+      appRoutes.addAll({option.route: (BuildContext context) => option.screen});
     }
 
     // menuOptions.map((option) => {
@@ -37,9 +56,7 @@ class AppRoutes {
   //       'home': (BuildContext context) => const HomeScreen(),
   //     };
 
-  static Route<dynamic> onGenerateRoute (RouteSettings settings){
-        return MaterialPageRoute(
-          builder: (context) => const AlertScreen()
-        );
-      }
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    return MaterialPageRoute(builder: (context) => const AlertScreen());
+  }
 }

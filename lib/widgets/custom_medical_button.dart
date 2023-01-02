@@ -18,8 +18,8 @@ class CustomMedicalButton extends StatelessWidget {
 
     return Container(
       // width: MediaQuery.of(context).size.width*width!,
-      width: 100,
-      height: 110,
+      width: ancho * 0.30,
+      height: alto * 0.12,
       // decoration: const BoxDecoration(
       //   borderRadius: BorderRadius.all(Radius.circular(30))
       // ),
@@ -40,20 +40,20 @@ class CustomMedicalButton extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Text(text!,
                     style: const TextStyle(
                         color: Color(0xFF57C2FE),
                         fontWeight: FontWeight.w500,
-                        fontSize: 18),
+                        fontSize: 12),
                     textAlign: TextAlign.center),
                 const SizedBox(
                   height: 10,
                 ),
                 Icon(
                   iconData!,
-                  size: 40,
+                  size: 30,
                   color: const Color(0xFF57C2FE),
                 ),
                 const SizedBox(
