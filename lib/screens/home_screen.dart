@@ -1,4 +1,5 @@
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
@@ -84,7 +85,13 @@ class HomeScreen extends StatelessWidget {
                 Column(
                   // padding: const EdgeInsets.all(8),
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children:<Widget> [
+
+                    // Text(HomeScreenArguments(description, location)),
+                    // Text(arguments.description),
+                    // Text(arguments.location),
+
+
                     //  CustomNextAppointmentButton(
                     //      name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
                     //      time: '09:00 a.m.'),
@@ -161,4 +168,11 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  
 }
+ class HomeScreenArguments{
+   String? description;
+   String? location;
+   HomeScreenArguments({this.description, this.location});
+ }

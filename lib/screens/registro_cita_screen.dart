@@ -1,9 +1,12 @@
+import 'dart:html';
+
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/home_screen.dart';
  import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
  import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,9 +18,14 @@ class RegistroCitaScreen extends StatefulWidget {
 }
 
 class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
-  late TextEditingController reasonTextController;
-  late TextEditingController descriptionTextController;
-  late TextEditingController locationTextController;
+ 
+
+   String? reasonValue;
+   String? descriptionValue;
+   String? locationValue;
+
+
+  final formKey = GlobalKey<FormState>();
 
   // const RegistroCitaScreen({Key? key}) : super(key: key);
     @override
@@ -41,23 +49,46 @@ class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
         ),
-        body: Column(children:<Widget> [
+        body: Form(
+          key:formKey,
+          child: Column(children:<Widget> [
           const SizedBox(
             height: 10,
           ),
-          TextField(
+          TextFormField(
             decoration: InputDecoration(labelText: 'Motivo de la Cita', ), 
-            controller: reasonTextController,
+            onSaved: (value){
+              reasonValue = value;
+            },
+            validator: (value){
+              if(value!.isEmpty){
+                return "LLene este campo";
+              }
+            },
           ),
 
-          TextField(
+          TextFormField(
             decoration: InputDecoration(labelText: 'Descripción de Consulta', ), 
-            controller: descriptionTextController,
+            onSaved: (value){
+              descriptionValue = value;
+            },
+            validator: (value){
+              if(value!.isEmpty){
+                return "LLene este campo";
+              }
+            },
           ),
 
-          TextField(
+          TextFormField(
             decoration: InputDecoration(labelText: 'Localización', ), 
-            controller: locationTextController,
+            onSaved: (Value){
+              locationValue = Value;
+            },
+            validator: (value){
+              if(value!.isEmpty){
+                return "LLene este campo";
+              }
+            },
           ),
 
 
@@ -107,38 +138,28 @@ class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
                       maxLines: 1,
                       textAlign: TextAlign.center),
                 ), 
-        ],),
+        ],),),
         
       ),
     );
 
-    void _showHomeScreen(BuildContext context){
-      Navigator.of(context).pushNamed("/second",
-      arguments: HomeScreen());
-    }
-  }
-  @override
-  void initState() {
-     
-
-    super.initState();
-     reasonTextController = TextEditingController();
-     descriptionTextController = TextEditingController();
-     locationTextController = TextEditingController();
     
   }
+//  void _showHomeScreen(BuildContext context){
 
-@override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    reasonTextController.dispose();
-    descriptionTextController.dispose();
-    locationTextController.dispose();
-    
+//      if(formKey.currentState!.validate()){
+//         formKey.currentState!.save();
 
-  }
-}
+//     Navigator.of(context).pushNamed("/second",
+//       arguments: HomeScreen(
+//         description: this.descriptionValue,
+//         location:this.locationValue));
+
+//      }
+
+      
+//     }
+ }
 
 
 
