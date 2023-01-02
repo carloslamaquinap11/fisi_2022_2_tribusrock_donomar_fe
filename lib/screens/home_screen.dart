@@ -43,17 +43,17 @@ class HomeScreen extends StatelessWidget {
                   CustomMedicalButton(
                       route: 'registro',
                       text: 'Solicitar una nueva cita',
-                      width: 0.25,
+                      width: 0.20,
                       iconData: Icons.favorite_border),
                   CustomMedicalButton(
                       route: 'registro',
                       text: 'Historial médico',
-                      width: 0.25,
+                      width: 0.20,
                       iconData: Icons.medication_outlined),
                   CustomMedicalButton(
                       route: 'registro',
                       text: 'Documento de facturas',
-                      width: 0.25,
+                      width: 0.20,
                       iconData: Icons.article_outlined),
                 ],
               ),
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: const Text('Citas por venir',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                       maxLines: 2,
                       textAlign: TextAlign.center),
                 ),
@@ -81,9 +81,6 @@ class HomeScreen extends StatelessWidget {
                   // padding: const EdgeInsets.all(8),
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CustomNextAppointmentButton(
-                        name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                        time: '09:00 a.m.'),
                     CustomNextAppointmentButton(
                         name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
                         time: '09:00 a.m.'),
