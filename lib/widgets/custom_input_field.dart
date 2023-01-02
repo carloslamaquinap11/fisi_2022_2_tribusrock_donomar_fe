@@ -29,12 +29,12 @@ class CustomInputField extends StatelessWidget {
         icon: icon,
         border: InputBorder.none,
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1,color: Colors.black),
+          borderSide: BorderSide(width: 1,color: Colors.transparent),
           borderRadius: BorderRadius.circular(15),
           
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1,color: Colors.black),
+          borderSide: BorderSide(width: 1,color: Colors.transparent),
           borderRadius: BorderRadius.circular(15)
         ),
         filled: true,

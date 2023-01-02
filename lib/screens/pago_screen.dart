@@ -8,13 +8,13 @@ import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class RegistroCitaScreen extends StatelessWidget {
-  const RegistroCitaScreen({Key? key}) : super(key: key);
+class Pago extends StatelessWidget {
+  const Pago({Key? key}) : super(key: key);
   static final Map<String, String> formValues = {
     'email': 'micorreo@gmail.com',
     'password': '123123123'
   };
-
+  
   @override
   Widget build(BuildContext context) {
     final alto = MediaQuery.of(context).size.height;
@@ -30,7 +30,7 @@ class RegistroCitaScreen extends StatelessWidget {
           ])),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Nueva Cita'),
+          title: const Text('Pago de Cita'),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
@@ -40,49 +40,21 @@ class RegistroCitaScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          CustomInputField(
-            labelText: 'Motivo de la Cita ',
-            keyboardType: TextInputType.text,
-            formProperty: 'reason',
-            formValues: formValues,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-           CustomInputField(
-            labelText: 'Descripcion Consulta ',
-            keyboardType: TextInputType.text,
-            formProperty: 'description',
-            formValues: formValues,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-           CustomInputField(
-            labelText: 'Localización ',
-            keyboardType: TextInputType.text,
-            formProperty: 'location',
-            formValues: formValues,
-          ),
+          
           SizedBox(height: 400,),
           ElevatedButton(
                   onPressed: () {
-                     if(formValues['reason']!=null &&
-                     formValues['description']!=null &&
-                     formValues['location']!=null  ){
-                     print('ezz');
-                     Navigator.pushNamed(context, 'home');
-                     }
-                   
+                     
+
                   },
                   style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(268, 52),
-                    minimumSize: const Size(268, 52),
-                    backgroundColor: const Color(0xFFFF912C),
+                    maximumSize: const Size(230, 43),
+                    minimumSize: const Size(230, 43),
+                    backgroundColor: const Color(0xFF2196F3),
                     shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
-                  child: const Text('AGENDAR CITA',
+                  child: const Text('Pagar S/20.00',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                       maxLines: 1,
@@ -92,6 +64,6 @@ class RegistroCitaScreen extends StatelessWidget {
         
       ),
     );
+    throw UnimplementedError();
   }
-  
-}
+  }
