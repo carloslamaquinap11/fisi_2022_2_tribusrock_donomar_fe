@@ -1,21 +1,26 @@
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/home_screen.dart';
-// import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
+ import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
-// import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
+ import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class RegistroCitaScreen extends StatelessWidget {
-  const RegistroCitaScreen({Key? key}) : super(key: key);
-  static final Map<String, String> formValues = {
-    'email': 'micorreo@gmail.com',
-    'password': '123123123'
-  };
+class RegistroCitaScreen extends StatefulWidget {
 
   @override
+  State<RegistroCitaScreen> createState() => _RegistroCitaScreenState();
+}
+
+class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
+  late TextEditingController reasonTextController;
+  late TextEditingController descriptionTextController;
+  late TextEditingController locationTextController;
+
+  // const RegistroCitaScreen({Key? key}) : super(key: key);
+    @override
   Widget build(BuildContext context) {
     final alto = MediaQuery.of(context).size.height;
     final ancho = MediaQuery.of(context).size.width;
@@ -36,43 +41,57 @@ class RegistroCitaScreen extends StatelessWidget {
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
         ),
-        body: Column(children: [
+        body: Column(children:<Widget> [
           const SizedBox(
             height: 10,
           ),
-          CustomInputField(
-            labelText: 'Motivo de la Cita ',
-            keyboardType: TextInputType.text,
-            formProperty: 'reason',
-            formValues: formValues,
+          TextField(
+            decoration: InputDecoration(labelText: 'Motivo de la Cita', ), 
+            controller: reasonTextController,
           ),
-          const SizedBox(
-            height: 10,
+
+          TextField(
+            decoration: InputDecoration(labelText: 'Descripción de Consulta', ), 
+            controller: descriptionTextController,
           ),
-           CustomInputField(
-            labelText: 'Descripcion Consulta ',
-            keyboardType: TextInputType.text,
-            formProperty: 'description',
-            formValues: formValues,
+
+          TextField(
+            decoration: InputDecoration(labelText: 'Localización', ), 
+            controller: locationTextController,
           ),
-          const SizedBox(
-            height: 10,
-          ),
-           CustomInputField(
-            labelText: 'Localización ',
-            keyboardType: TextInputType.text,
-            formProperty: 'location',
-            formValues: formValues,
-          ),
+
+
+          // CustomInputField(
+          //   labelText: 'Motivo de la Cita ',
+          //   keyboardType: TextInputType.text,
+          //   formProperty: 'reason',
+          //   formValues: formValues,
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          //  CustomInputField(
+          //   labelText: 'Descripcion Consulta ',
+          //   keyboardType: TextInputType.text,
+          //   formProperty: 'description',
+          //   formValues: formValues,
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          //  CustomInputField(
+          //   labelText: 'Localización ',
+          //   keyboardType: TextInputType.text,
+          //   formProperty: 'location',
+          //   formValues: formValues,
+          // ),
           SizedBox(height: 400,),
           ElevatedButton(
                   onPressed: () {
-                     if(formValues['reason']!=null &&
-                     formValues['description']!=null &&
-                     formValues['location']!=null  ){
+                     
                      print('ezz');
                      Navigator.pushNamed(context, 'home');
-                     }
+                     
                    
                   },
                   style: ElevatedButton.styleFrom(
@@ -92,6 +111,36 @@ class RegistroCitaScreen extends StatelessWidget {
         
       ),
     );
+
+    void _showHomeScreen(BuildContext context){
+      Navigator.of(context).pushNamed("/second",
+      arguments: HomeScreen());
+    }
   }
-  
+  @override
+  void initState() {
+     
+
+    super.initState();
+     reasonTextController = TextEditingController();
+     descriptionTextController = TextEditingController();
+     locationTextController = TextEditingController();
+    
+  }
+
+@override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    reasonTextController.dispose();
+    descriptionTextController.dispose();
+    locationTextController.dispose();
+    
+
+  }
 }
+
+
+
+
+

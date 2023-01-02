@@ -3,12 +3,16 @@ import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/registro_cita_screen.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class HomeScreen extends StatelessWidget {
+  
   const HomeScreen({Key? key}) : super(key: key);
+ 
 
   @override
   Widget build(BuildContext context) {
