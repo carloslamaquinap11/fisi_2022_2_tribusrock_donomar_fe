@@ -28,7 +28,7 @@ class CustomMedicalButton extends StatelessWidget {
             onPressed: () {
               print('botón presionado: ' + text!);
               print('ruta: ' + route!);
-              // Navigator.pushNamed(context, route!);
+              Navigator.pushNamed(context, route!);
             },
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(100, 120),

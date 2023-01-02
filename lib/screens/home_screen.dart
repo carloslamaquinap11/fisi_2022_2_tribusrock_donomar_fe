@@ -41,10 +41,10 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   CustomMedicalButton(
-                      route: 'registro',
                       text: 'Solicitar una nueva cita',
                       width: 0.20,
-                      iconData: Icons.favorite_border),
+                      iconData: Icons.favorite_border,
+                      route: 'registro_cita'),
                   CustomMedicalButton(
                       route: 'registro',
                       text: 'Historial médico',
