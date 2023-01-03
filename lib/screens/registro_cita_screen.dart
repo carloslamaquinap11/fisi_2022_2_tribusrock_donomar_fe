@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/home_screen.dart';
  import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
@@ -11,24 +9,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class RegistroCitaScreen extends StatefulWidget {
+import '../models/cita.dart';
+
+class RegistroCitaScreen extends StatelessWidget {
+
+  
+
+  // final String? reasonValue;
+
+  // final String? descriptionValue;
+
+  // final String? locationValue;
+
+  // final formKey = GlobalKey<FormState>();
+  static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  static final Map<String, String> formValues = {
+    'fecha': 'newfecha',
+    'description': 'newdescription',
+    'location': 'newlocation'
+  };
+
+  final List<Cita> citas;
+
+  const RegistroCitaScreen({Key? key, required this.citas}) : super(key: key);
 
   @override
-  State<RegistroCitaScreen> createState() => _RegistroCitaScreenState();
-}
-
-class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
- 
-
-   String? reasonValue;
-   String? descriptionValue;
-   String? locationValue;
-
-
-  final formKey = GlobalKey<FormState>();
-
-  // const RegistroCitaScreen({Key? key}) : super(key: key);
-    @override
   Widget build(BuildContext context) {
     final alto = MediaQuery.of(context).size.height;
     final ancho = MediaQuery.of(context).size.width;
@@ -51,79 +56,74 @@ class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
         ),
         body: Form(
           key:formKey,
-          child: Column(children:<Widget> [
-          const SizedBox(
-            height: 10,
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Motivo de la Cita', ), 
-            onSaved: (value){
-              reasonValue = value;
-            },
-            validator: (value){
-              if(value!.isEmpty){
-                return "LLene este campo";
-              }
-            },
-          ),
-
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Descripción de Consulta', ), 
-            onSaved: (value){
-              descriptionValue = value;
-            },
-            validator: (value){
-              if(value!.isEmpty){
-                return "LLene este campo";
-              }
-            },
-          ),
-
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Localización', ), 
-            onSaved: (Value){
-              locationValue = Value;
-            },
-            validator: (value){
-              if(value!.isEmpty){
-                return "LLene este campo";
-              }
-            },
-          ),
-
-
-          // CustomInputField(
-          //   labelText: 'Motivo de la Cita ',
-          //   keyboardType: TextInputType.text,
-          //   formProperty: 'reason',
-          //   formValues: formValues,
-          // ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          //  CustomInputField(
-          //   labelText: 'Descripcion Consulta ',
-          //   keyboardType: TextInputType.text,
-          //   formProperty: 'description',
-          //   formValues: formValues,
-          // ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          //  CustomInputField(
-          //   labelText: 'Localización ',
-          //   keyboardType: TextInputType.text,
-          //   formProperty: 'location',
-          //   formValues: formValues,
-          // ),
-          SizedBox(height: 400,),
-          ElevatedButton(
+          child: SingleChildScrollView(
+            child: Column(
+              children:<Widget> [
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Fecha de cita', ), 
+                  onChanged: (value){
+                    formValues['fecha'] = value;
+                  },
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return "LLene este campo";
+                    }
+                  },
+                ),
+          
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Descripción de Consulta', ), 
+                  onChanged: (value){
+                    formValues['description'] = value;
+                  },
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return "LLene este campo";
+                    }
+                  },
+                ),
+          
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Localización', ), 
+                  onChanged: (value){
+                    formValues['location'] = value;
+                  },
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return "LLene este campo";
+                    }
+                  },
+                ),
+          
+                SizedBox(height: 400,),
+                ElevatedButton(
                   onPressed: () {
-                     
-                     print('ezz');
-                     Navigator.pushNamed(context, 'home');
-                     
-                   
+                      
+                      print('ezz');
+
+                      var auxCita = Cita(
+                        dentistaId: 1, 
+                        pacienteId: 2, 
+                        fechaInicio: formValues['fecha'].toString(), 
+                        descripcionCita: formValues['description'].toString(), 
+                        localizacion: formValues['location'].toString());
+
+                      citas.add(auxCita);
+                      print('cita a agregar');
+                      print(auxCita.fechaInicio);
+                      print(auxCita.descripcionCita);
+                      print(auxCita.localizacion);
+                      print('citasssssssssssss');
+                      print(citas.length);
+                      // formKey = null;
+                      // print(citas);
+                      Navigator.popAndPushNamed(context,'home');
+                      // Navigator.push(context, 
+                      //   MaterialPageRoute(builder: (context)=>HomeScreen(misCitas: citas,))
+                      // );
                   },
                   style: ElevatedButton.styleFrom(
                     maximumSize: const Size(268, 52),
@@ -138,28 +138,14 @@ class _RegistroCitaScreenState extends State<RegistroCitaScreen> {
                       maxLines: 1,
                       textAlign: TextAlign.center),
                 ), 
-        ],),),
-        
+              ],
+            ),
+          ),
+        ),
       ),
     );
-
-    
   }
-//  void _showHomeScreen(BuildContext context){
-
-//      if(formKey.currentState!.validate()){
-//         formKey.currentState!.save();
-
-//     Navigator.of(context).pushNamed("/second",
-//       arguments: HomeScreen(
-//         description: this.descriptionValue,
-//         location:this.locationValue));
-
-//      }
-
-      
-//     }
- }
+}
 
 
 

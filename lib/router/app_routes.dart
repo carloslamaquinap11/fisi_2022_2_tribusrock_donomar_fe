@@ -20,12 +20,12 @@ class AppRoutes {
         route: 'home',
         icon: Icons.home_max_sharp,
         name: 'Home Screen',
-        screen: const HomeScreen()),
-    MenuOption(
-        route: 'registro_cita',
-        icon: Icons.home_max_sharp,
-        name: 'Registrar Cita',
-        screen:  RegistroCitaScreen()),
+        screen: HomeScreen()),
+    // MenuOption(
+    //     route: 'registro_cita',
+    //     icon: Icons.home_max_sharp,
+    //     name: 'Registrar Cita',
+    //     screen:  RegistroCitaScreen()),
     // MenuOption(route: 'listview2', icon: Icons.verified, name: 'ListView2 Screen', screen: const ListView2Screen()),
     // MenuOption(route: 'card', icon: Icons.ad_units_outlined, name: 'Card Screen', screen: const CardScreen()),
     MenuOption(

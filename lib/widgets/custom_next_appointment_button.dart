@@ -16,8 +16,8 @@ class CustomNextAppointmentButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(230, 80),
-        maximumSize: const Size(240, 110),
+        minimumSize: const Size(200, 80),
+        maximumSize: const Size(210, 110),
         elevation: 5,
         backgroundColor: Colors.white,
         shape: const RoundedRectangleBorder(

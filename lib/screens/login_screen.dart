@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           print(formValues);
-                          if (formValues['email'] == "@hotmail.com" &&
+                          if (formValues['email'] == "123" &&
                               formValues['password'] == "123") {
                             print("Éxito <3");
                             Navigator.pushNamed(context, 'home');

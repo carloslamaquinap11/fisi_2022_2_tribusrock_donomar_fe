@@ -5,20 +5,29 @@ import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/registro_cita_screen.dart';
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:fisi_2022_2_tribusrock_donomar_fe/models/cita.dart';
+
 class HomeScreen extends StatelessWidget {
   
-  const HomeScreen({Key? key}) : super(key: key);
+  List<Cita>? citas;
+
+  HomeScreen({Key? key,List<Cita>? misCitas}) : super(key: key){
+    citas = misCitas ?? [];
+  }
  
+  
 
   @override
   Widget build(BuildContext context) {
     final alto = MediaQuery.of(context).size.height;
     final ancho = MediaQuery.of(context).size.width;
+
+    print('CITAS EN HOMESCREEN');
+    print(citas!.length);
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -44,18 +53,19 @@ class HomeScreen extends StatelessWidget {
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   CustomMedicalButton(
                       text: 'Solicitar una nueva cita',
                       width: 0.20,
                       iconData: Icons.favorite_border,
-                      route: 'registro_cita'),
-                  CustomMedicalButton(
+                      route: 'registro_cita',
+                      citas: citas),
+                  const CustomMedicalButton(
                       route: 'registro',
                       text: 'Historial médico',
                       width: 0.20,
                       iconData: Icons.medication_outlined),
-                  CustomMedicalButton(
+                  const CustomMedicalButton(
                       route: 'registro',
                       text: 'Documento de facturas',
                       width: 0.20,
@@ -87,6 +97,35 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children:<Widget> [
 
+                    citas!.length!=0 ? Expanded(
+                      child: Container(
+                        // height: 80,
+                        width: 250,
+                        child:  ListView(
+                        children: citas!.map((e) {
+                          
+                          return CustomNextAppointmentButton(name: e.descripcionCita,time: '09:00 a.m.',);
+                        }).toList(),
+                      )
+                      )
+                    )
+                    :
+                    Text('No hay citas'),
+                    // ListView.separated(
+                    //   itemBuilder: (context,index)=>Padding(
+                    //     padding: EdgeInsets.all(8.0),
+                    //     child: Center(
+                    //       child: CustomNextAppointmentButton(
+                    //         name: ,
+                    //       )
+                    //     ),
+                    //   ), 
+                    //   separatorBuilder: (context, index) => Divider(
+                    //     color: Colors.black,
+                    //   ), 
+                    //   itemCount: citas!.length
+                    // )
+
                     // Text(HomeScreenArguments(description, location)),
                     // Text(arguments.description),
                     // Text(arguments.location),
@@ -103,14 +142,14 @@ class HomeScreen extends StatelessWidget {
                     //      time: '09:00 a.m.'),
                   ],
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
-                    // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
-                  ],
-                )
+                // Column(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: const [
+                //     // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
+                //     // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
+                //   ],
+                // )
               ],
             )),
             Container(

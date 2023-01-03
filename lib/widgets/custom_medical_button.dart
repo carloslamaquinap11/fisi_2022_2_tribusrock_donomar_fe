@@ -1,14 +1,18 @@
 import 'package:fisi_2022_2_tribusrock_donomar_fe/main.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/registro_cita_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../models/cita.dart';
 
 class CustomMedicalButton extends StatelessWidget {
   final String? text;
   final String? route;
   final double? width;
   final IconData? iconData;
+  final List<Cita>? citas;
 
   const CustomMedicalButton(
-      {Key? key, this.text, this.route, this.width, this.iconData})
+      {Key? key, this.text, this.route, this.width, this.iconData,this.citas})
       : super(key: key);
 
   @override
@@ -28,7 +32,13 @@ class CustomMedicalButton extends StatelessWidget {
             onPressed: () {
               print('botón presionado: ' + text!);
               print('ruta: ' + route!);
-              Navigator.pushNamed(context, route!);
+              
+              if(route=='registro_cita'){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RegistroCitaScreen(citas: citas!)));
+              }
+              else{
+                Navigator.pushNamed(context, route!);
+              }
             },
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(100, 120),
