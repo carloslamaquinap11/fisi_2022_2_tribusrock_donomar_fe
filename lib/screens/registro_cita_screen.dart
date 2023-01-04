@@ -1,8 +1,8 @@
 import 'package:fisi_2022_2_tribusrock_donomar_fe/router/app_routes.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/home_screen.dart';
- import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 // import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_medical_button.dart';
- import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
+import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/custom_next_appointment_button.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 
@@ -12,9 +12,6 @@ import 'package:flutter/services.dart';
 import '../models/cita.dart';
 
 class RegistroCitaScreen extends StatelessWidget {
-
-  
-
   // final String? reasonValue;
 
   // final String? descriptionValue;
@@ -26,7 +23,8 @@ class RegistroCitaScreen extends StatelessWidget {
   static final Map<String, String> formValues = {
     'fecha': 'newfecha',
     'description': 'newdescription',
-    'location': 'newlocation'
+    'location': 'newlocation',
+    'doctor': 'newdoctor'
   };
 
   final List<Cita> citas;
@@ -55,75 +53,98 @@ class RegistroCitaScreen extends StatelessWidget {
                   bottomRight: Radius.circular(10))),
         ),
         body: Form(
-          key:formKey,
+          key: formKey,
           child: SingleChildScrollView(
             child: Column(
-              children:<Widget> [
+              children: <Widget>[
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Fecha de cita', ), 
-                  onChanged: (value){
+                  decoration: InputDecoration(
+                    labelText: 'Fecha de cita (dd-mm-aa): ',
+                  ),
+                  onChanged: (value) {
                     formValues['fecha'] = value;
                   },
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "LLene este campo";
                     }
                   },
                 ),
-          
+                const SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Descripción de Consulta', ), 
-                  onChanged: (value){
+                  decoration: InputDecoration(
+                    labelText: 'Descripción de Consulta: ',
+                  ),
+                  onChanged: (value) {
                     formValues['description'] = value;
                   },
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "LLene este campo";
                     }
                   },
                 ),
-          
+                const SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Localización', ), 
-                  onChanged: (value){
+                  decoration: InputDecoration(
+                    labelText: 'Localización (Norte - Centro - Sur): ',
+                  ),
+                  onChanged: (value) {
                     formValues['location'] = value;
                   },
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "LLene este campo";
                     }
                   },
                 ),
-          
-                SizedBox(height: 400,),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Doctor: ',
+                  ),
+                  onChanged: (value) {
+                    formValues['doctor'] = value;
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "LLene este campo";
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: 300,
+                ),
                 ElevatedButton(
                   onPressed: () {
-                      
-                      print('ezz');
+                    print('ezz');
 
-                      var auxCita = Cita(
-                        dentistaId: 1, 
-                        pacienteId: 2, 
-                        fechaInicio: formValues['fecha'].toString(), 
-                        descripcionCita: formValues['description'].toString(), 
+                    var auxCita = Cita(
+                        dentistaId: 1,
+                        pacienteId: 2,
+                        fechaInicio: formValues['fecha'].toString(),
+                        descripcionCita: formValues['description'].toString(),
                         localizacion: formValues['location'].toString());
 
-                      citas.add(auxCita);
-                      print('cita a agregar');
-                      print(auxCita.fechaInicio);
-                      print(auxCita.descripcionCita);
-                      print(auxCita.localizacion);
-                      print('citasssssssssssss');
-                      print(citas.length);
-                      // formKey = null;
-                      // print(citas);
-                      Navigator.popAndPushNamed(context,'home');
-                      // Navigator.push(context, 
-                      //   MaterialPageRoute(builder: (context)=>HomeScreen(misCitas: citas,))
-                      // );
+                    citas.add(auxCita);
+                    print('cita a agregar');
+                    print(auxCita.fechaInicio);
+                    print(auxCita.descripcionCita);
+                    print(auxCita.localizacion);
+                    print('citasssssssssssss');
+                    print(citas.length);
+                    // formKey = null;
+                    // print(citas);
+                    Navigator.popAndPushNamed(context, 'home');
+                    // Navigator.push(context,
+                    //   MaterialPageRoute(builder: (context)=>HomeScreen(misCitas: citas,))
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     maximumSize: const Size(268, 52),
@@ -137,7 +158,7 @@ class RegistroCitaScreen extends StatelessWidget {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                       maxLines: 1,
                       textAlign: TextAlign.center),
-                ), 
+                ),
               ],
             ),
           ),
@@ -146,8 +167,3 @@ class RegistroCitaScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

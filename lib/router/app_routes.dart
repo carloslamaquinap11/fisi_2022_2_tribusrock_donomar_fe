@@ -2,6 +2,8 @@ import 'package:fisi_2022_2_tribusrock_donomar_fe/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/screens.dart';
 
+import '../screens/vercitas_screen.dart';
+
 class AppRoutes {
   static const initialRoute = 'login';
 
@@ -22,12 +24,10 @@ class AppRoutes {
         name: 'Home Screen',
         screen: HomeScreen()),
     // MenuOption(
-    //     route: 'registro_cita',
+    //     route: 'citas',
     //     icon: Icons.home_max_sharp,
-    //     name: 'Registrar Cita',
-    //     screen:  RegistroCitaScreen()),
-    // MenuOption(route: 'listview2', icon: Icons.verified, name: 'ListView2 Screen', screen: const ListView2Screen()),
-    // MenuOption(route: 'card', icon: Icons.ad_units_outlined, name: 'Card Screen', screen: const CardScreen()),
+    //     name: 'Ver Citas',
+    //     screen: VerCitasScreen()),
     MenuOption(
         route: 'alert',
         icon: Icons.alarm,

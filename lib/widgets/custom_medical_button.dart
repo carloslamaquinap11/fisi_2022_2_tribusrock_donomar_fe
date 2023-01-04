@@ -3,6 +3,7 @@ import 'package:fisi_2022_2_tribusrock_donomar_fe/screens/registro_cita_screen.d
 import 'package:flutter/material.dart';
 
 import '../models/cita.dart';
+import '../screens/vercitas_screen.dart';
 
 class CustomMedicalButton extends StatelessWidget {
   final String? text;
@@ -12,7 +13,7 @@ class CustomMedicalButton extends StatelessWidget {
   final List<Cita>? citas;
 
   const CustomMedicalButton(
-      {Key? key, this.text, this.route, this.width, this.iconData,this.citas})
+      {Key? key, this.text, this.route, this.width, this.iconData, this.citas})
       : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class CustomMedicalButton extends StatelessWidget {
 
     return Container(
       // width: MediaQuery.of(context).size.width*width!,
-      width: ancho * 0.30,
+      width: ancho * 0.40,
       height: alto * 0.12,
       // decoration: const BoxDecoration(
       //   borderRadius: BorderRadius.all(Radius.circular(30))
@@ -32,11 +33,19 @@ class CustomMedicalButton extends StatelessWidget {
             onPressed: () {
               print('botón presionado: ' + text!);
               print('ruta: ' + route!);
-              
-              if(route=='registro_cita'){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => RegistroCitaScreen(citas: citas!)));
-              }
-              else{
+
+              if (route == 'registro_cita') {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            RegistroCitaScreen(citas: citas!)));
+              } else if (route == 'citas') {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VerCitasScreen(citas: citas!)));
+              } else {
                 Navigator.pushNamed(context, route!);
               }
             },

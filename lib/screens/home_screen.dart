@@ -11,14 +11,11 @@ import 'package:flutter/services.dart';
 import 'package:fisi_2022_2_tribusrock_donomar_fe/models/cita.dart';
 
 class HomeScreen extends StatelessWidget {
-  
   List<Cita>? citas;
 
-  HomeScreen({Key? key,List<Cita>? misCitas}) : super(key: key){
+  HomeScreen({Key? key, List<Cita>? misCitas}) : super(key: key) {
     citas = misCitas ?? [];
   }
- 
-  
 
   @override
   Widget build(BuildContext context) {
@@ -60,98 +57,21 @@ class HomeScreen extends StatelessWidget {
                       iconData: Icons.favorite_border,
                       route: 'registro_cita',
                       citas: citas),
-                  const CustomMedicalButton(
-                      route: 'registro',
-                      text: 'Historial médico',
+                  CustomMedicalButton(
+                      route: 'citas',
+                      citas: citas,
+                      text: '   Ver citas registradas   ',
                       width: 0.20,
                       iconData: Icons.medication_outlined),
-                  const CustomMedicalButton(
-                      route: 'registro',
-                      text: 'Documento de facturas',
-                      width: 0.20,
-                      iconData: Icons.article_outlined),
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Expanded(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(120, 140),
-                    minimumSize: const Size(120, 90),
-                    backgroundColor: const Color(0xFF57C2FE),
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
-                  ),
-                  child: const Text('Citas por venir',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                      maxLines: 2,
-                      textAlign: TextAlign.center),
-                ),
-                Column(
-                  // padding: const EdgeInsets.all(8),
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children:<Widget> [
-
-                    citas!.length!=0 ? Expanded(
-                      child: Container(
-                        // height: 80,
-                        width: 250,
-                        child:  ListView(
-                        children: citas!.map((e) {
-                          
-                          return CustomNextAppointmentButton(name: e.descripcionCita,time: '09:00 a.m.',);
-                        }).toList(),
-                      )
-                      )
-                    )
-                    :
-                    Text('No hay citas'),
-                    // ListView.separated(
-                    //   itemBuilder: (context,index)=>Padding(
-                    //     padding: EdgeInsets.all(8.0),
-                    //     child: Center(
-                    //       child: CustomNextAppointmentButton(
-                    //         name: ,
-                    //       )
-                    //     ),
-                    //   ), 
-                    //   separatorBuilder: (context, index) => Divider(
-                    //     color: Colors.black,
-                    //   ), 
-                    //   itemCount: citas!.length
-                    // )
-
-                    // Text(HomeScreenArguments(description, location)),
-                    // Text(arguments.description),
-                    // Text(arguments.location),
-
-
-                    //  CustomNextAppointmentButton(
-                    //      name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                    //      time: '09:00 a.m.'),
-                    // CustomNextAppointmentButton(
-                    //      name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                    //      time: '09:00 a.m.'),
-                    //  CustomNextAppointmentButton(
-                    //     name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',
-                    //      time: '09:00 a.m.'),
-                  ],
-                ),
-                // Column(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   children: const [
-                //     // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
-                //     // CustomNextAppointmentButton(name: 'REVISIÓN MÉDICA DE IMPLANTE MAMARIO',time: '09:00 a.m.'),
-                //   ],
-                // )
-              ],
-            )),
+              child: Text("Hola"),
+            ),
             Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -169,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Hiro Oré Alejos',
+                      'Clínica Dental App',
                       style: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.w600,
@@ -177,13 +97,6 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 10,
-                    ),
-                    Text(
-                      '4551 5555 6666 7777',
-                      style: TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
@@ -207,11 +120,10 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
-  
 }
- class HomeScreenArguments{
-   String? description;
-   String? location;
-   HomeScreenArguments({this.description, this.location});
- }
+
+class HomeScreenArguments {
+  String? description;
+  String? location;
+  HomeScreenArguments({this.description, this.location});
+}
