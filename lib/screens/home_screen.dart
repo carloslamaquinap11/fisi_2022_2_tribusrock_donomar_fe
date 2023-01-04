@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
         body: Column(
           children: [
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             Center(
               child: Row(
@@ -68,11 +68,15 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             Expanded(
               // child: Text("Hola"),
               child: CardSlider(context),
+            ),
+
+            SizedBox(
+              height: 50,
             ),
             Container(
               decoration: const BoxDecoration(
@@ -93,12 +97,12 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       'Clínica Dental App',
                       style: TextStyle(
-                          fontSize: 23,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Colors.white),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
                     SizedBox(
                       height: 10,
@@ -106,12 +110,12 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       '10/08/2000',
                       style: TextStyle(
-                          fontSize: 23,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Colors.white),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
                   ],
                 ),
@@ -130,7 +134,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: size.height*0.5,
-      color: Colors.amber,
+      color: Color(0xFF57C2FE),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -142,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                 return Container(
                   width: 240,
                   height: 150,
-                  color: Colors.green,
+                  color: Colors.white,
                   margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                   child: Column(
                     children: [
