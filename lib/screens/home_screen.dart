@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:fisi_2022_2_tribusrock_donomar_fe/models/cita.dart';
+import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 
 class HomeScreen extends StatelessWidget {
   List<Cita>? citas;
@@ -70,7 +71,8 @@ class HomeScreen extends StatelessWidget {
               height: 10,
             ),
             Expanded(
-              child: Text("Hola"),
+              // child: Text("Hola"),
+              child: CardSlider(context),
             ),
             Container(
               decoration: const BoxDecoration(
@@ -117,6 +119,50 @@ class HomeScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget CardSlider(BuildContext context){
+
+    final size = MediaQuery.of(context).size;
+
+    return Container(
+      width: double.infinity,
+      height: size.height*0.5,
+      color: Colors.amber,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              itemBuilder: (_, index) {
+                return Container(
+                  width: 240,
+                  height: 150,
+                  color: Colors.green,
+                  margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: FadeInImage(
+                          placeholder: AssetImage('assets/swiper_publicidad/foto1.jpg'), 
+                          image: AssetImage('assets/swiper_publicidad/foto1.jpg'),
+                          width: 210,
+                          height: 159,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }
+            ),
+          ),
+        ],
       ),
     );
   }
