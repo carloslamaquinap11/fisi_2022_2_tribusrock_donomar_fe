@@ -14,7 +14,7 @@ class Pago extends StatelessWidget {
     'email': 'micorreo@gmail.com',
     'password': '123123123'
   };
-  
+
   @override
   Widget build(BuildContext context) {
     final alto = MediaQuery.of(context).size.height;
@@ -36,34 +36,34 @@ class Pago extends StatelessWidget {
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
         ),
-        body: Column(children: [
-          const SizedBox(
-            height: 10,
-          ),
-          
-          SizedBox(height: 400,),
-          ElevatedButton(
-                  onPressed: () {
-                     
-
-                  },
-                  style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(230, 43),
-                    minimumSize: const Size(230, 43),
-                    backgroundColor: const Color(0xFF2196F3),
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                  ),
-                  child: const Text('Pagar S/20.00',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                      maxLines: 1,
-                      textAlign: TextAlign.center),
-                ), 
-        ],),
-        
+        body: Column(
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 400,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.popAndPushNamed(context, 'home');
+              },
+              style: ElevatedButton.styleFrom(
+                maximumSize: const Size(230, 43),
+                minimumSize: const Size(230, 43),
+                backgroundColor: const Color(0xFF2196F3),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+              ),
+              child: const Text('Pagar S/20.00',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                  maxLines: 1,
+                  textAlign: TextAlign.center),
+            ),
+          ],
+        ),
       ),
     );
     throw UnimplementedError();
   }
-  }
+}

@@ -141,7 +141,7 @@ class RegistroCitaScreen extends StatelessWidget {
                     print(citas.length);
                     // formKey = null;
                     // print(citas);
-                    Navigator.popAndPushNamed(context, 'home');
+                    Navigator.popAndPushNamed(context, 'pago');
                     // Navigator.push(context,
                     //   MaterialPageRoute(builder: (context)=>HomeScreen(misCitas: citas,))
                     // );

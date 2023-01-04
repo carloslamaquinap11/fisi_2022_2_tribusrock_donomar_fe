@@ -23,6 +23,11 @@ class AppRoutes {
         icon: Icons.home_max_sharp,
         name: 'Home Screen',
         screen: HomeScreen()),
+    MenuOption(
+        route: 'pago',
+        icon: Icons.home_max_sharp,
+        name: 'Pago Screen',
+        screen: Pago()),
     // MenuOption(
     //     route: 'citas',
     //     icon: Icons.home_max_sharp,
