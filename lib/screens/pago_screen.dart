@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 
 class Pago extends StatelessWidget {
   const Pago({Key? key}) : super(key: key);
+  static final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
   static final Map<String, String> formValues = {
     'email': 'micorreo@gmail.com',
     'password': '123123123'
@@ -36,34 +37,102 @@ class Pago extends StatelessWidget {
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              height: 400,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, 'home');
-              },
-              style: ElevatedButton.styleFrom(
-                maximumSize: const Size(230, 43),
-                minimumSize: const Size(230, 43),
-                backgroundColor: const Color(0xFF2196F3),
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              height: alto * 0.55, //
+              width: ancho * 0.9, //
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              decoration: const BoxDecoration(
+                  color: Color(0xFF57C2FE),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Form(
+                key: myFormKey,
+                child: Column(
+                  children: [
+                    Text(' '),
+                    
+                    Image(image: AssetImage('assets/visa_logo.jpg')),
+                  
+                   SizedBox(
+                    height: 15,
+                   ),
+
+                    CustomInputField(
+                      labelText: 'Correo',
+                      keyboardType: TextInputType.emailAddress,
+                      formProperty: 'email',
+                      formValues: formValues,
+                    ),
+                   
+                   SizedBox(
+                    height: 10,
+                   ),
+
+                    CustomInputField(
+                      labelText: 'Numero de cuenta',
+                      isPassword: true,
+                      formProperty: 'password',
+                      formValues: formValues,
+                    ),
+                    
+                    SizedBox(
+                    height: 10,
+                   ),
+                   
+                   CustomInputField(
+                      labelText: 'Fecha',
+                      keyboardType: TextInputType.emailAddress,
+                      formProperty: 'email',
+                      formValues: formValues,
+                    ),
+                   
+                    SizedBox(
+                    height: 10,
+                   ),
+                   
+                   CustomInputField(
+                      labelText: 'Numero',
+                      keyboardType: TextInputType.emailAddress,
+                      formProperty: 'email',
+                      formValues: formValues,
+                    ),
+
+
+                    SizedBox(
+                    height: 10,
+                     ),
+
+                    ElevatedButton(
+                        onPressed: () {
+                        Navigator.popAndPushNamed(context, 'home');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        maximumSize: const Size(230, 43),
+                        minimumSize: const Size(230, 43),
+                        backgroundColor: const Color(0xFF2196F3),
+                         shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                      ),
+                      child: const Text('PAGAR S/20.00',
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          maxLines: 1,
+                          textAlign: TextAlign.center),),
+
+                    // Divider(),
+                  
+                  ],
+                ),
               ),
-              child: const Text('Pagar S/20.00',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                  maxLines: 1,
-                  textAlign: TextAlign.center),
             ),
-          ],
+          ),
         ),
       ),
     );
     throw UnimplementedError();
   }
 }
+
+
+
